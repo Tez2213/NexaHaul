@@ -19,7 +19,8 @@ export default function Choice() {
         setUserId(id);
     }, [router]);
 
-    const handleRoleSelection = async (role) => {
+    // Add type annotation for the role parameter
+    const handleRoleSelection = async (role: string) => {
         setLoading(true);
         setError('');
 
