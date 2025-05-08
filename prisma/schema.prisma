@@ -8,31 +8,32 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
   name          String
-  email         String    @unique
+  email         String     @unique
   password      String
   role          String?
-  emailVerified Boolean   @default(false)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  bids          Bid[]     @relation("UserBids")
+  emailVerified Boolean    @default(false)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  bids          Bid[]      @relation("UserBids")
+  proposals     Proposal[] @relation("UserProposals")
 }
 
 model Bid {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
   title         String
   description   String
   budget        Float
   location      String
   deadline      DateTime
-  status        String    @default("open")
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  status        String     @default("open")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
   
   // Relations
-  userId        String    @db.ObjectId
-  user          User      @relation("UserBids", fields: [userId], references: [id])
+  userId        String     @db.ObjectId
+  user          User       @relation("UserBids", fields: [userId], references: [id])
   proposals     Proposal[]
 }
 
@@ -49,4 +50,5 @@ model Proposal {
   bidId         String    @db.ObjectId
   bid           Bid       @relation(fields: [bidId], references: [id])
   contractorId  String    @db.ObjectId
+  contractor    User      @relation("UserProposals", fields: [contractorId], references: [id])
 }

@@ -1,7 +1,19 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import prisma from '@/lib/prisma';
+import { PrismaClient } from '@prisma/client';
+
+// Avoid instantiating Prisma during build time
+let prisma;
+
+if (process.env.NODE_ENV !== 'production') {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
+}
 
 export async function POST(request) {
   try {
