@@ -44,8 +44,13 @@ export default function Choice() {
             
             // Redirect based on role
             router.push(`/${role}`);
-        } catch (err: any) {
-            setError(err?.message || 'An unexpected error occurred');
+        } catch (err: unknown) {
+            // Handle the error with type checking
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unexpected error occurred');
+            }
         } finally {
             setLoading(false);
         }
