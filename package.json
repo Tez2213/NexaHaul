@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "postinstall": "prisma generate",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "dev": "next dev",
+    "socket": "node server/socket-server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run socket\"",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,7 +21,9 @@
     "next-auth": "^4.24.11",
     "prisma": "^6.7.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -27,8 +31,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/socket.io-client": "^1.4.36",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "express": "^4.21.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
