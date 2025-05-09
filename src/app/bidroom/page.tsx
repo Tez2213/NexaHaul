@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import io from 'socket.io-client';
-import type { Socket } from 'socket.io-client';
+import { io } from 'socket.io-client';
+import type { Socket as SocketType } from 'socket.io-client';
 import Link from 'next/link';
 
 interface Bid {
@@ -49,7 +49,7 @@ export default function BidRoom() {
   };
 
   const router = useRouter();
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [socket, setSocket] = useState<SocketType | null>(null);
   const [connected, setConnected] = useState(false);
   const [bidAmount, setBidAmount] = useState<number>(0);
   const [currentLowestBid, setCurrentLowestBid] = useState<number>(mockData.initialBidAmount);

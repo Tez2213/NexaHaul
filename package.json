@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate",
-    "build": "next build",
     "dev": "next dev",
-    "socket": "node server/socket-server.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run socket\"",
+    "build": "next build",
+    "clean": "rm -rf .next && rm -rf node_modules/.cache",
+    "clean:build": "npm run clean && npm run build",
     "start": "next start",
-    "lint": "next lint"
+    "socket": "node server/socket-server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run socket\""
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
