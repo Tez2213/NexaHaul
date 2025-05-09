@@ -8,16 +8,72 @@ datasource db {
 }
 
 model User {
-  id            String     @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  email         String     @unique
-  password      String
-  role          String?
-  emailVerified Boolean    @default(false)
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
-  bids          Bid[]      @relation("UserBids")
-  proposals     Proposal[] @relation("UserProposals")
+  id                      String     @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  email                   String     @unique
+  password                String
+  role                    String?    // "shipper" or "contractor"
+  phone                   String?
+  address                 String?
+  city                    String?
+  state                   String?
+  zipCode                 String?
+  country                 String?
+  profileImage            String?    // URL to stored image
+  emailVerified           Boolean    @default(false)
+  walletAddress           String?    // For MetaMask integration
+  
+  // Contractor-specific fields
+  companyName             String?
+  companyRegistrationNo   String?
+  companyAddress          String?
+  companyLogo             String?    // URL to stored image
+  taxId                   String?
+  website                 String?
+  yearsInBusiness         Int?
+  employeeCount           Int?
+  
+  // Contractor identity verification
+  idType                  String?    // passport, driver_license, etc.
+  idNumber                String?
+  idExpiryDate            DateTime?
+  idFrontImage            String?    // URL to stored image
+  idBackImage             String?    // URL to stored image
+  
+  // Contractor transportation details
+  vehicleTypes            String[]   @default([])
+  serviceAreas            String[]   @default([])
+  specializations         String[]   @default([])
+  insuranceProvider       String?
+  insurancePolicy         String?
+  insuranceExpiryDate     DateTime?
+  
+  // Shipper-specific fields
+  officeLocation          String?
+  businessRegistrationNumber String?
+  primaryCargoTypes       String[]   @default([])
+  averageMonthlyShipments String?
+  preferredContractorTypes String[]  @default([])
+  operatingRegions        String[]   @default([])
+  insuranceRequirements   String?
+  licensingRequirements   String?
+  
+  // Subscription and stats
+  subscriptionPlan        String?    @default("Free")
+  planExpiryDate          DateTime?
+  totalJobsPosted         Int?       @default(0)
+  totalCompletedJobs      Int?       @default(0)
+  activeJobs              Int?       @default(0)
+  
+  // Timestamps
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+  
+  // Relations
+  bids                    Bid[]      @relation("UserBids")
+  proposals               Proposal[] @relation("UserProposals")
+  contractsAsShipper      Contract[] @relation("ShipperContracts")
+  contractsAsContractor   Contract[] @relation("ContractorContracts")
 }
 
 model Bid {
@@ -27,7 +83,13 @@ model Bid {
   budget        Float
   location      String
   deadline      DateTime
-  status        String     @default("open")
+  status        String     @default("open") // open, assigned, completed, cancelled
+  cargoType     String?
+  weight        Float?
+  dimensions    String?
+  specialRequirements String?
+  pickupAddress String?
+  deliveryAddress String?
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
   
@@ -35,6 +97,7 @@ model Bid {
   userId        String     @db.ObjectId
   user          User       @relation("UserBids", fields: [userId], references: [id])
   proposals     Proposal[]
+  contract      Contract?
 }
 
 model Proposal {
@@ -42,7 +105,7 @@ model Proposal {
   price         Float
   description   String
   estimatedTime String
-  status        String    @default("pending")
+  status        String    @default("pending") // pending, accepted, rejected
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   
@@ -51,4 +114,28 @@ model Proposal {
   bid           Bid       @relation(fields: [bidId], references: [id])
   contractorId  String    @db.ObjectId
   contractor    User      @relation("UserProposals", fields: [contractorId], references: [id])
+  contract      Contract?
+}
+
+model Contract {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  status        String    @default("active") // active, completed, cancelled, disputed
+  startDate     DateTime  @default(now())
+  endDate       DateTime?
+  finalAmount   Float
+  paymentStatus String    @default("pending") // pending, partial, completed
+  feedback      String?
+  rating        Int?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // Relations
+  bidId         String    @unique @db.ObjectId
+  bid           Bid       @relation(fields: [bidId], references: [id])
+  proposalId    String?   @unique @db.ObjectId
+  proposal      Proposal? @relation(fields: [proposalId], references: [id])
+  shipperId     String    @db.ObjectId
+  shipper       User      @relation("ShipperContracts", fields: [shipperId], references: [id])
+  contractorId  String    @db.ObjectId
+  contractor    User      @relation("ContractorContracts", fields: [contractorId], references: [id])
 }
