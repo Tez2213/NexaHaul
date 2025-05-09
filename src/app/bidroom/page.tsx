@@ -12,6 +12,11 @@ interface Bid {
   timestamp: Date;
 }
 
+interface ParticipantData {
+  name: string;
+  role?: string;
+}
+
 interface BidRoomProps {
   initialBidAmount: number;
   timeLimit: number; // in seconds
@@ -165,7 +170,7 @@ export default function BidRoom() {
       setContractorCount(data.contractorCount);
       
       if (data.participants) {
-        setParticipants(data.participants.map((p: any) => p.name));
+        setParticipants(data.participants.map((p: ParticipantData) => p.name));
       }
       
       if (data.winner) {
