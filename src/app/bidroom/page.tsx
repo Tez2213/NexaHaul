@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { io, Socket } from 'socket.io-client';
+import io from 'socket.io-client';
+import type { Socket } from 'socket.io-client';
 import Link from 'next/link';
 
 interface Bid {
@@ -118,13 +119,18 @@ export default function BidRoom() {
     // Use the actual server URL from environment or default to localhost
     const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3001';
 
-    // Make sure the URL uses wss:// for HTTPS sites
-    const secureSocketUrl = socketUrl.replace('http://', 'https://');
+    // Check if it needs to be secure based on the current site
+    const secureSocketUrl = window.location.protocol === 'https:' && socketUrl.startsWith('http:')
+      ? socketUrl.replace('http:', 'https:')
+      : socketUrl;
+
+    console.log('Connecting to socket server at:', secureSocketUrl); // Add this for debugging
 
     const socketInstance = io(secureSocketUrl, {
-      transports: ['websocket'], // Prioritize WebSockets
+      transports: ['websocket', 'polling'], // Try both transports for better compatibility
       reconnectionAttempts: 10,
       reconnectionDelay: 1000,
+      timeout: 10000, // Add a longer timeout
       query: {
         userId: user.id,
         userName: user.name,
