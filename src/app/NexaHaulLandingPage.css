@@ -1,0 +1,265 @@
+/* NexaHaulLandingPage.css */
+:root {
+  --nexa-gold: #f9b233;
+  --nexa-dark-gold: #e8a41c;
+  --nexa-green: #5e8a2a;
+  --nexa-dark: #1a1a1a;
+  --nexa-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.nexa-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--nexa-dark);
+  color: var(--nexa-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background waves - matching Image 1 */
+.wave-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  height: 140%;
+  width: 55%;
+  left: -15%;
+  border-radius: 0 70% 70% 0;
+}
+
+
+
+/* Header and navigation */
+.nexa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.nexa-logo h1 {
+  color: var(--nexa-white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 0.9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -1px;
+}
+
+.nexa-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--nexa-white);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+  color: var(--nexa-gold);
+}
+
+/* Main content */
+.nexa-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  padding: 0 4rem;
+  position: relative;
+  z-index: 5;
+}
+
+.nexa-content {
+  flex: 1;
+  max-width: 650px;
+  padding-left: 3rem;
+  z-index: 5;
+}
+
+.nexa-headline h2 {
+    font-family: 'Lexend Mega', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 858px;
+    height: 204px;
+    position: absolute;
+    top: 10px;
+    left: 700px;
+}
+
+.highlight {
+  color: var(--nexa-gold);
+  font-weight: 700;
+
+}
+.nexa-subheading {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    position: absolute;
+    bottom: 220px;
+    left: 300px;
+    z-index: 10;
+}
+
+.get-started-btn {
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #4b6e27, var(--nexa-green));
+    color: var(--nexa-white);
+    border: 1px solid rgba(255, 218, 9, 0.853);
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Illustration section - using reference from Image 2 */
+.nexa-illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.illustration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../public/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+/* Pseudo elements to create the image from Image 2 */
+.illustration-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 70%;
+    background-image: url('../../public/home-delivery-express-shipping-background-3d-render-illustration.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .nexa-headline h2 {
+    font-size: 2.2rem;
+  }
+  
+  .nexa-subheading {
+    font-size: 1.3rem;
+  }
+  
+  .illustration-container {
+    width: 450px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nexa-main {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 0;
+  }
+  
+  .nexa-content {
+    padding-left: 0;
+    margin-bottom: 3rem;
+  }
+  
+  .wave {
+    height: 60%;
+    width: 150%;
+    top: -20%;
+    left: -25%;
+    border-radius: 0 0 50% 50%;
+  }
+  
+  .illustration-container {
+    width: 400px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nexa-header {
+    padding: 1.5rem 2rem;
+  }
+  
+  .nexa-logo h1 {
+    font-size: 2rem;
+  }
+  
+  .nexa-main {
+    padding: 0 2rem;
+  }
+  
+  .nexa-headline h2 {
+    font-size: 1.8rem;
+  }
+  
+  .nexa-subheading {
+    font-size: 1.2rem;
+  }
+  
+  .get-started-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .illustration-container {
+    width: 320px;
+    height: 200px;
+  }
+}
