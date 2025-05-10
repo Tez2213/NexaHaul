@@ -333,7 +333,7 @@ export default function Form() {
                     value={formData.title}
                     onChange={handleInputChange}
                     placeholder="E.g., Furniture Transport to Portland"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     required
                   />
                 </div>
@@ -347,7 +347,7 @@ export default function Form() {
                     onChange={handleInputChange}
                     rows="3"
                     placeholder="Provide details about your shipment..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     required
                   ></textarea>
                 </div>
@@ -359,7 +359,7 @@ export default function Form() {
                     name="itemType"
                     value={formData.itemType}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     required
                   >
                     <option value="">Select Item Type</option>
@@ -413,7 +413,7 @@ export default function Form() {
                       value={formData.quantity}
                       onChange={handleInputChange}
                       min="1"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -430,7 +430,7 @@ export default function Form() {
                       onChange={handleInputChange}
                       min="0"
                       placeholder="Length"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     />
                   </div>
                   
@@ -444,7 +444,7 @@ export default function Form() {
                       onChange={handleInputChange}
                       min="0"
                       placeholder="Width"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     />
                   </div>
                   
@@ -458,7 +458,7 @@ export default function Form() {
                       onChange={handleInputChange}
                       min="0"
                       placeholder="Height"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     />
                   </div>
                   
@@ -469,7 +469,7 @@ export default function Form() {
                       name="dimensionUnit"
                       value={formData.dimensionUnit}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     >
                       <option value="cm">cm</option>
                       <option value="inches">inches</option>
@@ -531,7 +531,7 @@ export default function Form() {
                     onChange={handleInputChange}
                     rows="2"
                     placeholder="Any special handling instructions or requirements..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                   ></textarea>
                 </div>
               </div>
@@ -553,7 +553,7 @@ export default function Form() {
                     value={formData.pickupLocation.address}
                     onChange={handleInputChange}
                     placeholder="Enter street address"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     required
                   />
                 </div>
@@ -568,7 +568,7 @@ export default function Form() {
                       value={formData.pickupLocation.city}
                       onChange={handleInputChange}
                       placeholder="Enter city"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -582,7 +582,7 @@ export default function Form() {
                       value={formData.pickupLocation.state}
                       onChange={handleInputChange}
                       placeholder="Enter state"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -598,7 +598,7 @@ export default function Form() {
                       value={formData.pickupLocation.zipCode}
                       onChange={handleInputChange}
                       placeholder="Enter ZIP code"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -610,7 +610,7 @@ export default function Form() {
                       name="pickupLocation.country"
                       value={formData.pickupLocation.country}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     >
                       <option value="United States">United States</option>
@@ -634,7 +634,7 @@ export default function Form() {
                         value={formData.pickupContactName}
                         onChange={handleInputChange}
                         placeholder="Full name"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -648,7 +648,7 @@ export default function Form() {
                         value={formData.pickupContactPhone}
                         onChange={handleInputChange}
                         placeholder="Phone number"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -662,7 +662,7 @@ export default function Form() {
                         value={formData.pickupContactEmail}
                         onChange={handleInputChange}
                         placeholder="Email address"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       />
                     </div>
                   </div>
@@ -680,7 +680,7 @@ export default function Form() {
                         name="pickupDate"
                         value={formData.pickupDate}
                         onChange={handleInputChange}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -692,7 +692,7 @@ export default function Form() {
                         name="pickupTimeWindow"
                         value={formData.pickupTimeWindow}
                         onChange={handleInputChange}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       >
                         <option value="anytime">Anytime</option>
@@ -713,7 +713,7 @@ export default function Form() {
                     onChange={handleInputChange}
                     rows="2"
                     placeholder="Parking instructions, gate codes, or other relevant information..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                   ></textarea>
                 </div>
               </div>
@@ -735,7 +735,7 @@ export default function Form() {
                     value={formData.deliveryLocation.address}
                     onChange={handleInputChange}
                     placeholder="Enter street address"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     required
                   />
                 </div>
@@ -750,7 +750,7 @@ export default function Form() {
                       value={formData.deliveryLocation.city}
                       onChange={handleInputChange}
                       placeholder="Enter city"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -764,7 +764,7 @@ export default function Form() {
                       value={formData.deliveryLocation.state}
                       onChange={handleInputChange}
                       placeholder="Enter state"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -780,7 +780,7 @@ export default function Form() {
                       value={formData.deliveryLocation.zipCode}
                       onChange={handleInputChange}
                       placeholder="Enter ZIP code"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                   </div>
@@ -792,7 +792,7 @@ export default function Form() {
                       name="deliveryLocation.country"
                       value={formData.deliveryLocation.country}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     >
                       <option value="United States">United States</option>
@@ -841,7 +841,7 @@ export default function Form() {
                         value={formData.deliveryContactName}
                         onChange={handleInputChange}
                         placeholder="Full name"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -855,7 +855,7 @@ export default function Form() {
                         value={formData.deliveryContactPhone}
                         onChange={handleInputChange}
                         placeholder="Phone number"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -869,7 +869,7 @@ export default function Form() {
                         value={formData.deliveryContactEmail}
                         onChange={handleInputChange}
                         placeholder="Email address"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       />
                     </div>
                   </div>
@@ -887,7 +887,7 @@ export default function Form() {
                         name="estimatedDeliveryDate"
                         value={formData.estimatedDeliveryDate}
                         onChange={handleInputChange}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                         required
                       />
                     </div>
@@ -899,7 +899,7 @@ export default function Form() {
                         name="deliveryTimeWindow"
                         value={formData.deliveryTimeWindow}
                         onChange={handleInputChange}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       >
                         <option value="anytime">Anytime</option>
                         <option value="morning">Morning (8am - 12pm)</option>
@@ -919,7 +919,7 @@ export default function Form() {
                     onChange={handleInputChange}
                     rows="2"
                     placeholder="Delivery instructions, access codes, or other relevant information..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                   ></textarea>
                 </div>
               </div>
@@ -944,7 +944,7 @@ export default function Form() {
                       min="0"
                       step="0.01"
                       placeholder="Enter starting amount"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     />
                     <p className="text-xs text-gray-500 mt-1">
@@ -963,7 +963,7 @@ export default function Form() {
                       min={formData.initialAmount || 0}
                       step="0.01"
                       placeholder="Enter maximum budget (optional)"
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                     />
                     <p className="text-xs text-gray-500 mt-1">
                       Optional: Your absolute maximum budget for this shipment
@@ -979,7 +979,7 @@ export default function Form() {
                       name="timeLimit"
                       value={formData.timeLimit}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-600"
                       required
                     >
                       <option value="1">1 day</option>
